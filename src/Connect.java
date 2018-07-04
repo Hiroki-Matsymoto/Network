@@ -9,7 +9,7 @@ public class Connect {
 		ArrayList<Integer> visitN = new ArrayList<Integer>();// 未訪問の点
 		int max = -1;// 暫定の最大連結成分
 		int v0;
-		double f = 0;max = -1;
+		int f = 0;
 //		for (int s = 1; s <= 100; s++) {
 //			f += 0.01;
 //			for (int i = 0; i < n; i++) {
