@@ -21,7 +21,7 @@ public class Score {
 		ArrayList<Integer> queue = new ArrayList<Integer>();// 隣接点の探索が終わってない点
 		boolean[] visitQ = new boolean[net.n];
 		ArrayList<Integer> visitN = new ArrayList<Integer>();// 未訪問の点
-		double sum1,sum2,x=1;
+		double sum1,sum2,x=0.01;
 		net.scoreList = new double[net.n];
 		for(int v=0;v<net.n;v++){sum1=0;
 			for(int i=0;i<net.n;i++)visitQ[i] = false;
@@ -46,10 +46,11 @@ public class Score {
 					}visitN.remove(0);
 				}
 			net.scoreList[v]+=sum2*Math.pow(x, sum1);
+//			System.out.println(v+"\t"+net.scoreList[v]);
 
 
 				}
-			System.out.println(v+"\t"+net.scoreList[v]);
+//			System.out.println(v+"\t"+net.scoreList[v]);
 		}
 
 	}

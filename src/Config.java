@@ -20,8 +20,8 @@ public class Config extends Network{
 		m = 0;
 		// 一段階：P[k]の頂点決め
 		for (int k = 2; k <= Kmax; k++) {
-			N += Math.pow(k, -2.5);
-			P[k] = Math.pow(k, -2.5);
+			N += Math.pow(k, -3.5);
+			P[k] = Math.pow(k, -3.5);
 			Kcum[k] = 0;
 			// System.out.println(i+"\t"+P[i]);
 		}

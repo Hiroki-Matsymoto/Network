@@ -4,23 +4,26 @@ public class original {
 	public void originalModel(Network net){
 		ArrayList<Integer> true_List = new ArrayList<Integer>();// 破壊された頂点
 		ArrayList<Integer> aliveList = new ArrayList<Integer>();// 破壊された頂点とつながっていた点
+		int a=0;
 
 		for(int i=0; i<net.n;i++) {
 			if(net.visitQ[i]==true) {
 				true_List.add(i);
+//				System.out.println(true_List.size());
 			}
-		}
+		}				
 		do {
 			for(int i=0;i<net.degreeList[true_List.get(0)];i++) {
-				if(net.visitQ[net.neighborList[net.addressList[true_List.get(0)+i]]]==true) {
-					aliveList.add(net.neighborList[net.addressList[true_List.get(0)+i]]);
+				if(net.visitQ[net.neighborList[net.addressList[true_List.get(0)]+i]]==true) {
+					aliveList.add(net.neighborList[net.addressList[true_List.get(0)]+i]);
+//					System.out.println(aliveList.size());
 				}
 			}
 			true_List.remove(0);
-		}while(true_List.size()==0);//破壊された頂点とつながっていた点をpick up
+		}while(true_List.size()!=0);//破壊された頂点とつながっていた点をpick up
 		int aliveSize=aliveList.size();
 		int pos1, pos2,node1,node2,judg = 0;
-		for(int i=0;i<aliveSize;i++) {
+		for(int i=0;i<(aliveSize/2);i++) {
 			int count=0;
 			do {
 				pos1=(int)(Math.random()*aliveList.size());
@@ -33,7 +36,8 @@ public class original {
 						break;
 					}else judg=0;
 				}count++;
-			}while(pos1 == pos2 || node1 == node2 || judg ==0||count<100);
+				if(count==100)break;
+			}while(pos1 == pos2 || node1 == node2 || judg ==1);
 			if(count<100) {
 				for(int j=0;j<net.degreeList[node1];j++) {
 					if(net.visitQ[net.neighborList[net.addressList[node1]+j]]==true) {
@@ -47,9 +51,11 @@ public class original {
 				}
 				aliveList.remove(aliveList.indexOf(node1));
 				aliveList.remove(aliveList.indexOf(node2));
-
+//				System.out.println(a);
+//				a++;
 			}
 		}
+
 
 	}
 
