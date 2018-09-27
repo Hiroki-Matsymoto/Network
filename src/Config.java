@@ -72,10 +72,12 @@ public class Config extends Network{
 	}
 
 	// ランダムに辺をつなぐ
-	public void random2() {
+	public  void random2() {
+		int count;
 //		pairList = new int[m][2];
 		neighborList = new int[m];
 		ArrayList<Integer> stubList = new ArrayList<Integer>();
+		stubList.clear();
 		int pos1 = 0, pos2 = 0, node1 = 0, node2 = 0, judg = 0;
 		for (int i = 0; i < m; i++)
 			neighborList[i] = 0;
@@ -86,6 +88,7 @@ public class Config extends Network{
 				stubList.add(i);
 		}
 		do {
+			count=0;
 			do {
 				pos1 = (int) (Math.random() * stubList.size());
 				pos2 = (int) (Math.random() * stubList.size());
@@ -98,7 +101,15 @@ public class Config extends Network{
 					} else
 						judg = 0;
 				}  //System.out.println(node1+"\t"+node2+"\t"+judg);
+				if(count==1000){
+//					System.out.println("false");
+					break;
+				}
+				count++;
 			} while (pos1 == pos2 || node1 == node2 || judg == 1);
+//			if(count==100){
+//				System.out.println("false");break;
+//			}
 			neighborList[cursor[node1]] = node2;
 			neighborList[cursor[node2]] = node1;
 			cursor[node1]++;
@@ -112,6 +123,11 @@ public class Config extends Network{
 			}
 
 		} while (stubList.size() != 0);
+		if(count==100){
+			Config net =new Config(10000);
+			net.random1();
+			net.random2();
+		}
 
 	}
 

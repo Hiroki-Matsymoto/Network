@@ -18,8 +18,8 @@ public class Attack {
 			double f = 0;
 			// 頂点の番号と次数をセットにする
 			for (int i = 0; i <net. n; i++) {
-				sort[i][0] = net.degreeList[i];
-//				sort[i][0] = net.scoreList[i];
+//				sort[i][0] = net.degreeList[i];
+				sort[i][0] = net.scoreList[i];
 				sort[i][1] = i;
 			}
 			// for(int i=0;i<n;i++)System.out.println(sort[i][0]+"\t"+sort[i][1]);
@@ -68,9 +68,10 @@ public class Attack {
 					}
 				}
 //				for(int i=0;i<net.n;i++)System.out.println(sort[i][0]+"\t"+sort[i][1]);
-
+				net.max_sum[net.count]=0;
+				int t=0;
 			while(true) {
-				f+=0.001;
+				f+=0.01;
 				max = 0;
 				for (int i = 0; i < net.n; i++) {
 					if (i <(int)(f*net.n)) {
@@ -114,9 +115,11 @@ public class Attack {
 
 				}
 
-				System.out.println(f+"\t"+max);
-				if(max==0)break;
+//				System.out.println(f+"\t"+max);
+				if(f>=1)break;
 //				net.ave[t]+=max;
+				net.max_sum[net.count]+=max;
+				t++;
 			}
 		}
 }

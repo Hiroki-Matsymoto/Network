@@ -8,8 +8,10 @@ public class Network {
 	public double[] scoreList;
 	public int[] cursor;
 	public double[] ave;
+	public double[] max_sum;
 	public int m;
 	public int n;
+	public int count;
 	boolean[] visitQ;
 
 

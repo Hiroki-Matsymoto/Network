@@ -5,16 +5,18 @@ public class original {
 		ArrayList<Integer> true_List = new ArrayList<Integer>();// 破壊された頂点
 		ArrayList<Integer> aliveList = new ArrayList<Integer>();// 破壊された頂点とつながっていた点
 		int a=0;
-
+		true_List.clear();
+		aliveList.clear();
 		for(int i=0; i<net.n;i++) {
 			if(net.visitQ[i]==true) {
 				true_List.add(i);
 //				System.out.println(true_List.size());
 			}
-		}				
+		}
 		do {
+			if(true_List.size()==0)break;
 			for(int i=0;i<net.degreeList[true_List.get(0)];i++) {
-				if(net.visitQ[net.neighborList[net.addressList[true_List.get(0)]+i]]==true) {
+				if(net.visitQ[net.neighborList[net.addressList[true_List.get(0)]+i]]==false) {
 					aliveList.add(net.neighborList[net.addressList[true_List.get(0)]+i]);
 //					System.out.println(aliveList.size());
 				}
@@ -36,17 +38,19 @@ public class original {
 						break;
 					}else judg=0;
 				}count++;
-				if(count==100)break;
+				if(count==100)break;;
 			}while(pos1 == pos2 || node1 == node2 || judg ==1);
 			if(count<100) {
 				for(int j=0;j<net.degreeList[node1];j++) {
 					if(net.visitQ[net.neighborList[net.addressList[node1]+j]]==true) {
 						net.neighborList[net.addressList[node1]+j]=node2;
+//						System.out.println(net.visitQ[net.neighborList[net.addressList[node1]+j]]);
 					}
 				}
 				for(int j=0;j<net.degreeList[node2];j++) {
 					if(net.visitQ[net.neighborList[net.addressList[node2]+j]]==true) {
 						net.neighborList[net.addressList[node2]+j]=node1;
+//						System.out.println(net.visitQ[net.neighborList[net.addressList[node2]+j]]);
 					}
 				}
 				aliveList.remove(aliveList.indexOf(node1));

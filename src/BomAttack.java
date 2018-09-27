@@ -65,11 +65,11 @@ public class BomAttack {
                     temp_array.remove(random_index);
                 }
             }
-
-            for(int t=0;t<100;t++){
+            int t=0;
+            while(true){
                 f+=0.01;
                 max = 0;// 暫定の最大連結成分
-            for(int time=0;time<(int)(net.n*f);time++){
+            for(int time=0;time<(int)(net.n*0.01);time++){
                 for(int i=0;i<net.n;i++){
                     if(net.scoreList[i]<=0){
                         net.visitQ[i]=true;
@@ -112,6 +112,18 @@ public class BomAttack {
 //			Connect con = new Connect();
 //			con.connect(net);
 //			for(int i =0;i<net.n;i++)System.out.println(net.visitQ[i]);
+            
+//オリジナル挿入           
+            for(int i=0;i<net.n;i++){
+                if(net.scoreList[i]<=0){
+                    net.visitQ[i]=true;
+                    }else{
+                        net.visitQ[i]=false;
+                    }
+                }
+
+            original ori = new original();
+			ori.originalModel(net); 
             }
             for(int i=0;i<net.n;i++){
                 if(net.scoreList[i]<=0){
@@ -122,6 +134,7 @@ public class BomAttack {
                         visitN.add(i);
                     }
                 }
+
                 while (visitN.size() != 0) {
                     memberList.clear();
                     queue.add(visitN.get(0));
@@ -149,7 +162,10 @@ public class BomAttack {
 //						System.out.println(memberList.size()+"\t"+max);
                     }
                 }
+//                net.ave[t]+=max;
+                t++;
             System.out.println(f+"\t"+max);
+            if(f>=1)break;
           }
 
 
