@@ -115,7 +115,7 @@ public class Attack {
 
 				}
 
-//				System.out.println(f+"\t"+max);
+				System.out.println(f+"\t"+max);
 				if(f>=1)break;
 //				net.ave[t]+=max;
 				net.max_sum[net.count]+=max;
