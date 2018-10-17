@@ -6,8 +6,8 @@ public class compile {
 		Config net =new Config(100);
 //		makeList net =new makeList(1000);
 //		Score score = new Score();
-		Attack atk = new Attack();
-//		BomAttack ba= new BomAttack();
+//		Attack atk = new Attack();
+		BomAttack ba= new BomAttack();
 		net.ave = new double[100];
 	    net.max_sum=new double[1000000];
 		int sum=1000;double f=0;
@@ -17,14 +17,14 @@ public class compile {
 		net.random2();
 
 //		score.setScore(net);
-		atk.setAttack(net);
-		atk.activeAttack(net);
+//		atk.setAttack(net);
+//		atk.activeAttack(net);
 //		net.count++;
 //		System.out.println(net.max_sum[0]);
 //		test tes=new test();
 //		tes.onion(net);
 //		atk.activeAttack(net);
-//		ba.attack(net);		
+		ba.attack(net);
 //		System.out.println(i);
 //			}
 //		for(int i=0;i<100;i++){

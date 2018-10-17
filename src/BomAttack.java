@@ -14,7 +14,8 @@ public class BomAttack {
         ArrayList<Integer> visitN = new ArrayList<Integer>();// 未訪問の点
         double f = 0;
         int v0;int v;int max;
-        for(int i=0; i<net.n;i++)net.scoreList[i]=100;
+        score_degree score=new score_degree();
+        score.setScore(net);
 
         // 次数の高い順に並べなおす
             for (int i = 0; i <net. n; i++) {
@@ -112,8 +113,8 @@ public class BomAttack {
 //			Connect con = new Connect();
 //			con.connect(net);
 //			for(int i =0;i<net.n;i++)System.out.println(net.visitQ[i]);
-            
-//オリジナル挿入           
+
+//オリジナル挿入
             for(int i=0;i<net.n;i++){
                 if(net.scoreList[i]<=0){
                     net.visitQ[i]=true;
@@ -123,7 +124,7 @@ public class BomAttack {
                 }
 
             original ori = new original();
-			ori.originalModel(net); 
+			ori.originalModel(net);
             }
             for(int i=0;i<net.n;i++){
                 if(net.scoreList[i]<=0){
