@@ -13,6 +13,7 @@ public class Network {
 	public int n;
 	public int count;
 	boolean[] visitQ;
+	double[][] sort;
 
 
 }

@@ -41,7 +41,7 @@ public class test {
             	}
             }
     		Attack atk1 = new Attack();
-    		atk1.setAttack(net);
+    		atk1.activeAttack(net);
     		if(net.max_sum[net.count-1]>net.max_sum[net.count]){
     	        net.neighborList[net.addressList[nod1]+pos1]=nod3;
     	        net.neighborList[net.addressList[nod2]+pos2]=nod4;
@@ -57,14 +57,14 @@ public class test {
     	        		break;
     	        	}
     	        }
-        		Attack atk2 = new Attack();
-        		atk2.setAttack(net);
+//        		Attack atk2 = new Attack();
+//        		atk2.activeAttack(net);
 //        		System.out.println(net.max_sum[net.count]+"\t"+net.max_sum[net.count-1]+"\t"+"false");
     		}else{
     			System.out.println(net.count);
     			net.count++;
     		}
-    		if(net.count-1>1001&&(net.max_sum[net.count-1]-net.max_sum[net.count-1000])<(net.max_sum[net.count-2]-net.max_sum[net.count-1002])*0.01)break;
+    		if(net.count-1>101&&(net.max_sum[net.count-1]-net.max_sum[net.count-101])<(net.max_sum[net.count-2]-net.max_sum[net.count-102])*0.01)break;
         }while(true);
 //compileに0回目の試行時net.max_sum[0]=net.max_sum[1]と入れる
 	}

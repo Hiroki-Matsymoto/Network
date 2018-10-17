@@ -88,7 +88,7 @@ public class BomAttack {
                     v0 = target.get(0);
                     if(net.visitQ[v0]==false){
                         net.visitQ[v0] = true;
-                    net.scoreList[v0]=net.scoreList[v0]-(100-10*wave);
+                    net.scoreList[v0]=net.scoreList[v0]-(10-1*wave);
 //					System.out.println(net.scoreList[v0]);
                     }
                 for (int j = 0; j < net.degreeList[v0]; j++) {
@@ -165,7 +165,7 @@ public class BomAttack {
 //                net.ave[t]+=max;
                 t++;
             System.out.println(f+"\t"+max);
-            if(f>=1)break;
+            if(f>0.5)break;
           }
 
 
