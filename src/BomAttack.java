@@ -115,16 +115,16 @@ public class BomAttack {
 //			for(int i =0;i<net.n;i++)System.out.println(net.visitQ[i]);
 
 //オリジナル挿入
-            for(int i=0;i<net.n;i++){
-                if(net.scoreList[i]<=0){
-                    net.visitQ[i]=true;
-                    }else{
-                        net.visitQ[i]=false;
-                    }
-                }
-
-            original ori = new original();
-			ori.originalModel(net);
+//            for(int i=0;i<net.n;i++){
+//                if(net.scoreList[i]<=0){
+//                    net.visitQ[i]=true;
+//                    }else{
+//                        net.visitQ[i]=false;
+//                    }
+//                }
+//
+//            original ori = new original();
+//			ori.originalModel(net);
             }
             for(int i=0;i<net.n;i++){
                 if(net.scoreList[i]<=0){
@@ -166,7 +166,7 @@ public class BomAttack {
 //                net.ave[t]+=max;
                 t++;
             System.out.println(f+"\t"+max);
-            if(f>0.5)break;
+            if(f>1)break;
           }
 
 
