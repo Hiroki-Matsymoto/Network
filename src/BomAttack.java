@@ -85,11 +85,13 @@ public class BomAttack {
                     }else s++;
                     }while(target.size()==0&&(time+s)<net.n);//
             for(int wave=0;wave<10;wave++){
+            	double damage =100/(Math.pow(2, wave));
+//            	double damage =100-(10*wave);
             while (target.size() != 0){
                     v0 = target.get(0);
                     if(net.visitQ[v0]==false){
                         net.visitQ[v0] = true;
-                    net.scoreList[v0]=net.scoreList[v0]-(10-1*wave);
+                    net.scoreList[v0]=net.scoreList[v0]-damage;
 //					System.out.println(net.scoreList[v0]);
                     }
                 for (int j = 0; j < net.degreeList[v0]; j++) {
@@ -102,12 +104,14 @@ public class BomAttack {
 //					System.out.println(nextTarget.size());
                 }
                 while(nextTarget.size()!=0){
-                    if(wave<=9){
                         target.add(nextTarget.get(0));
 //						System.out.println(target.size());
-                    }
                         nextTarget.remove(0);
                     }
+                if(damage<1){
+                	target.clear();
+                	break;
+                }
 
             }
 //			Connect con = new Connect();
@@ -126,15 +130,23 @@ public class BomAttack {
 //            original ori = new original();
 //			ori.originalModel(net);
             }
+            double averagedegree=0;
             for(int i=0;i<net.n;i++){
                 if(net.scoreList[i]<=0){
                     net.visitQ[i]=true;
 //					System.out.println(i);
                     }else{
-                        net.visitQ[i]=false;
+                        net.visitQ[i]=false; 
                         visitN.add(i);
                     }
                 }
+            for(int i=0;i<net.n;i++){
+                for(int j=0;j<net.degreeList[i];j++){
+                	if(net.visitQ[net.neighborList[ net.addressList[i] + j]]==false){
+                		averagedegree++;
+                	}
+                }
+            }
 
                 while (visitN.size() != 0) {
                     memberList.clear();
@@ -165,7 +177,8 @@ public class BomAttack {
                 }
 //                net.ave[t]+=max;
                 t++;
-            System.out.println(f+"\t"+max);
+//            System.out.println(f+"\t"+max);
+            System.out.println(f+"\t"+averagedegree/net.m);
             if(f>1)break;
           }
 
