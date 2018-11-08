@@ -136,7 +136,7 @@ public class BomAttack {
                     net.visitQ[i]=true;
 //					System.out.println(i);
                     }else{
-                        net.visitQ[i]=false; 
+                        net.visitQ[i]=false;
                         visitN.add(i);
                     }
                 }
@@ -147,7 +147,7 @@ public class BomAttack {
                 	}
                 }
             }
-
+//qqq
                 while (visitN.size() != 0) {
                     memberList.clear();
                     queue.add(visitN.get(0));
