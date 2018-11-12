@@ -85,8 +85,8 @@ public class BomAttack {
                     }else s++;
                     }while(target.size()==0&&(time+s)<net.n);//
             for(int wave=0;wave<10;wave++){
-            	double damage =100/(Math.pow(2, wave));
-//            	double damage =100-(10*wave);
+            	double damage =200/(Math.pow(2, wave));
+//            	double damage =10-(1*wave);
             while (target.size() != 0){
                     v0 = target.get(0);
                     if(net.visitQ[v0]==false){
@@ -131,9 +131,11 @@ public class BomAttack {
 //			ori.originalModel(net);
             }
             double averagedegree=0;
+            int trueNode=0;
             for(int i=0;i<net.n;i++){
                 if(net.scoreList[i]<=0){
                     net.visitQ[i]=true;
+                    trueNode++;
 //					System.out.println(i);
                     }else{
                         net.visitQ[i]=false;
@@ -147,7 +149,6 @@ public class BomAttack {
                 	}
                 }
             }
-//qqq
                 while (visitN.size() != 0) {
                     memberList.clear();
                     queue.add(visitN.get(0));
@@ -178,7 +179,8 @@ public class BomAttack {
 //                net.ave[t]+=max;
                 t++;
 //            System.out.println(f+"\t"+max);
-            System.out.println(f+"\t"+averagedegree/net.m);
+//            System.out.println(f+"\t"+averagedegree/net.m);
+              System.out.println(f+"\t"+trueNode);
             if(f>1)break;
           }
 

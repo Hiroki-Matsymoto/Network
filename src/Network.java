@@ -11,6 +11,7 @@ public class Network {
 	public double[] max_sum;
 	public int m;
 	public int n;
+	public double f;
 	public int count;
 	boolean[] visitQ;
 	double[][] sort;
